@@ -147,7 +147,7 @@
 
   <script>
     // REPLACE THIS URL WITH YOUR N8N WEBHOOK TEST / PRODUCTION URL
-    const WEBHOOK_URL = "https://gold-mosquito-565337.hostingersite.com/webhook-test/c1036564-040d-49cc-96d1-720d52b7ebd6";
+    const WEBHOOK_URL = "https://gold-mosquito-565337.hostingersite.com/webhook/c1036564-040d-49cc-96d1-720d52b7ebd6";
 
     async function sendData() {
       const textarea = document.getElementById('noteInput');
@@ -167,15 +167,15 @@
 
       try {
         const response = await fetch(WEBHOOK_URL, {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json'
-          },
-          body: JSON.stringify({
-            message: text,
-            timestamp: new Date().toISOString()
-          })
-        });
+  method: 'POST',
+  headers: {
+    'Content-Type': 'text/plain' // Prevents browser CORS OPTIONS preflight
+  },
+  body: JSON.stringify({
+    message: text,
+    timestamp: new Date().toISOString()
+  })
+});
 
         if (response.ok) {
           status.className = 'success';
