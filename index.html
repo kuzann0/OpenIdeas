@@ -134,12 +134,12 @@
 <body>
 
   <div class="container">
-    <h1>Sync Note</h1>
-    <p class="subtitle">Enter your message below to send directly to Google Docs via n8n.</p>
+    <h1>OpenIdeas</h1>
+    <p class="subtitle">Share your thoughts and ideas with the world.</p>
 
     <div class="form-group">
-      <textarea id="noteInput" placeholder="Write something clean and thoughtful..."></textarea>
-      <button id="submitBtn" onclick="sendData()">Submit Note</button>
+      <textarea id="noteInput" placeholder="Your idea..."></textarea>
+      <button id="submitBtn" onclick="sendData()">Submit Idea</button>
     </div>
 
     <div id="status"></div>
@@ -179,7 +179,7 @@
 
         if (response.ok) {
           status.className = 'success';
-          status.textContent = 'Successfully sent to n8n!';
+          status.textContent = 'Message sent successfully!';
           textarea.value = '';
         } else {
           status.className = 'error';
@@ -191,7 +191,7 @@
         console.error(err);
       } finally {
         button.disabled = false;
-        button.textContent = 'Submit Note';
+        button.textContent = 'Submit Idea';
       }
     }
   </script>
